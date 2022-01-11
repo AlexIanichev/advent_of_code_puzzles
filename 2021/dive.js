@@ -37,5 +37,3 @@ const getResultingPosition = (commandsString) => {
 
   return coordinates.horizontal * coordinates.vertical;
 };
-
-console.log(getResultingPosition(data));
