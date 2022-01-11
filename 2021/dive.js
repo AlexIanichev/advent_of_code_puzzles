@@ -16,22 +16,24 @@ const directions = {
 
 const getResultingPosition = (commandsString) => {
   const commandsArray = commandsString.split("\n");
-  let coordinates = { horizontal: 0, vertical: 0 };
+  let coordinates = { horizontal: 0, vertical: 0 },
+    aim = 0;
 
   for (let command of commandsArray) {
     const [direction, value] = command.split(" ");
     const numberValue = Number(value);
 
     if (direction === directions.down) {
-      coordinates.vertical += numberValue;
+      aim += numberValue;
     }
 
     if (direction === directions.up) {
-      coordinates.vertical -= numberValue;
+      aim -= numberValue;
     }
 
     if (direction === directions.forward) {
       coordinates.horizontal += numberValue;
+      coordinates.vertical += aim * numberValue;
     }
   }
 
